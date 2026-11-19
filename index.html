@@ -3,30 +3,340 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sangaafilum Vault — Software & Apps</title>
-  <meta name="description" content="Открытый каталог авторских программ и утилит sangaafilum.">
+  <title>sangaafilum Vault</title>
+  <meta name="description" content="Открытый каталог авторских программ и разработок sangaafilum.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-border: #1f293d;
+      --surface-hover: #162032;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-glow: rgba(59, 130, 246, 0.25);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+      --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      min-height: 100vh;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .bg-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.16;
+    }
+    .bg-glow-1 {
+      background: #3b82f6;
+      top: -100px;
+      left: 15%;
+    }
+    .bg-glow-2 {
+      background: #8b5cf6;
+      top: 250px;
+      right: 10%;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+    .logo-icon {
+      color: #fbbf24;
+      font-size: 1.5rem;
+    }
+    .logo-text strong {
+      color: var(--primary);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      padding: 4px;
+      border-radius: 50px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px 12px;
+      border-radius: 50px;
+      transition: all 0.2s ease;
+    }
+    .lang-btn:hover {
+      color: #fff;
+    }
+    .lang-btn.active {
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-btn {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-btn:hover {
+      color: #fff;
+    }
+    .nav-btn-primary {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+    }
+    .nav-btn-primary:hover {
+      background: var(--surface-hover);
+      border-color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 0 30px;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 50px;
+      color: #60a5fa;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      color: #ffffff;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    /* Blank / Placeholder Grid */
+    .apps-section {
+      padding: 20px 0 60px;
+    }
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    /* Карточки-заготовки */
+    .blank-card {
+      background: rgba(17, 24, 39, 0.45);
+      border: 2px dashed #243047;
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 280px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .blank-card:hover {
+      border-color: var(--primary);
+      background: rgba(17, 24, 39, 0.7);
+      transform: translateY(-4px);
+    }
+    .blank-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    .blank-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .blank-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 50px;
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      margin-bottom: 14px;
+    }
+    .blank-text {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 260px;
+      line-height: 1.5;
+    }
+
+    /* Info Section */
+    .info-section {
+      margin: 40px auto 70px;
+    }
+    .info-card {
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .info-icon {
+      font-size: 2rem;
+    }
+    .info-item h3 {
+      font-size: 1.15rem;
+      color: #fff;
+    }
+    .info-item p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--surface-border);
+      padding: 30px 0;
+      margin-top: 40px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 680px) {
+      .header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .header-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .hero-title {
+        font-size: 1.85rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Фоновые эффекты -->
   <div class="bg-glow bg-glow-1"></div>
   <div class="bg-glow bg-glow-2"></div>
 
-  <!-- Шапка сайта -->
+  <!-- Шапка -->
   <header class="header container">
-    <div class="logo">
+    <a href="#" class="logo">
       <span class="logo-icon">⚡</span>
       <span class="logo-text">sangaafilum <strong>Vault</strong></span>
-    </div>
+    </a>
     
     <div class="header-right">
       <div class="lang-switcher">
-        <button class="lang-btn active" id="btnRu" data-lang="ru">RU</button>
-        <span class="lang-divider">/</span>
-        <button class="lang-btn" id="btnEn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn active" id="btnRu" onclick="setLang('ru')">RU</button>
+        <button type="button" class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
       </div>
       
       <div class="header-links">
@@ -37,41 +347,41 @@
     </div>
   </header>
 
-  <!-- Главный экран (Hero) -->
+  <!-- Hero -->
   <section class="hero container">
     <div class="hero-badge" data-i18n="heroBadge">🚀 Открытые авторские разработки</div>
     <h1 class="hero-title" id="heroTitle">Программы, которые мы создаём <br><span class="gradient-text">для работы и удобства</span></h1>
     <p class="hero-subtitle" data-i18n="heroSubtitle">
-      Здесь собраны все наши авторские приложения, скрипты и утилиты. Все файлы проверены на вирусы, полностью бесплатны и доступны для скачивания с Google Диска.
+      Здесь будут выкладываться наши авторские программы, утилиты и скрипты. Все файлы проверяются на безопасность и будут доступны для бесплатного скачивания с Google Диска.
     </p>
-
-    <!-- Поиск и фильтры -->
-    <div class="controls-panel">
-      <div class="search-box">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input type="text" id="searchInput" placeholder="Поиск программы по названию или описанию...">
-      </div>
-
-      <div class="filter-tabs" id="filterTabs">
-        <button class="filter-btn active" data-filter="all" data-i18n="tabAll">Все</button>
-        <button class="filter-btn" data-filter="utilities" data-i18n="tabUtils">Утилиты</button>
-        <button class="filter-btn" data-filter="productivity" data-i18n="tabProd">Продуктивность</button>
-        <button class="filter-btn" data-filter="developer" data-i18n="tabDev">Для разработчиков</button>
-      </div>
-    </div>
   </section>
 
-  <!-- Сетка программ -->
+  <!-- Каталог: чистые пустые блоки-заготовки -->
   <main class="apps-section container" id="apps">
-    <div class="apps-grid" id="appsGrid">
-      <!-- Наполняется через script.js -->
-    </div>
-    
-    <div id="noResults" class="no-results hidden">
-      <p data-i18n="noResults">🔍 По вашему запросу ничего не найдено</p>
+    <div class="apps-grid">
+      <!-- Пустой блок 1 -->
+      <div class="blank-card">
+        <div class="blank-icon">📦</div>
+        <div class="blank-badge" data-i18n="badgeComingSoon">Скоро</div>
+        <h2 class="blank-title" data-i18n="slot1Title">Программа #1</h2>
+        <p class="blank-text" data-i18n="slotDesc">Место зарезервировано. Скоро здесь появится программа и прямая ссылка на Google Диск.</p>
+      </div>
+
+      <!-- Пустой блок 2 -->
+      <div class="blank-card">
+        <div class="blank-icon">📦</div>
+        <div class="blank-badge" data-i18n="badgeInDev">В разработке</div>
+        <h2 class="blank-title" data-i18n="slot2Title">Программа #2</h2>
+        <p class="blank-text" data-i18n="slotDesc">Место зарезервировано. Скоро здесь появится программа и прямая ссылка на Google Диск.</p>
+      </div>
+
+      <!-- Пустой блок 3 -->
+      <div class="blank-card">
+        <div class="blank-icon">📦</div>
+        <div class="blank-badge" data-i18n="badgeInDev">В разработке</div>
+        <h2 class="blank-title" data-i18n="slot3Title">Программа #3</h2>
+        <p class="blank-text" data-i18n="slotDesc">Место зарезервировано. Скоро здесь появится программа и прямая ссылка на Google Диск.</p>
+      </div>
     </div>
   </main>
 
@@ -81,7 +391,7 @@
       <div class="info-item">
         <div class="info-icon">🛡️</div>
         <h3 data-i18n="feat1Title">Безопасность</h3>
-        <p data-i18n="feat1Desc">Каждая программа перед загрузкой проверяется, не содержит рекламы и скрытых майнеров.</p>
+        <p data-i18n="feat1Desc">Каждая программа перед загрузкой проверяется, не содержит рекламы и вредоносного кода.</p>
       </div>
       <div class="info-item">
         <div class="info-icon">⚡</div>
@@ -106,6 +416,74 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const translations = {
+      ru: {
+        pageTitle: "sangaafilum Vault — Программы и разработки",
+        navCatalog: "Каталог",
+        navAbout: "О проекте",
+        heroBadge: "🚀 Открытые авторские разработки",
+        heroTitle: 'Программы, которые мы создаём <br><span class="gradient-text">для работы и удобства</span>',
+        heroSubtitle: "Здесь будут выкладываться наши авторские программы, утилиты и скрипты. Все файлы проверяются на безопасность и будут доступны для бесплатного скачивания с Google Диска.",
+        badgeComingSoon: "Скоро",
+        badgeInDev: "В разработке",
+        slot1Title: "Программа #1",
+        slot2Title: "Программа #2",
+        slot3Title: "Программа #3",
+        slotDesc: "Место зарезервировано. Скоро здесь появится программа и прямая ссылка на Google Диск.",
+        feat1Title: "Безопасность",
+        feat1Desc: "Каждая программа перед загрузкой проверяется, не содержит рекламы и вредоносного кода.",
+        feat2Title: "Google Диск",
+        feat2Desc: "Быстрая прямая скорость скачивания без ожидания таймеров и ограничений.",
+        feat3Title: "Обновления",
+        feat3Desc: "Мы постоянно улучшаем наши разработки и выкладываем свежие релизы.",
+        footerText: "Все права сохранены.",
+        backToTop: "Вверх ↑"
+      },
+      en: {
+        pageTitle: "sangaafilum Vault — Software & Releases",
+        navCatalog: "Catalog",
+        navAbout: "About",
+        heroBadge: "🚀 Custom Software & Open Releases",
+        heroTitle: 'Software crafted <br><span class="gradient-text">for productivity and power</span>',
+        heroSubtitle: "Our original software, utilities, and tools will be released here. All builds are virus-scanned and available for free download via Google Drive.",
+        badgeComingSoon: "Coming Soon",
+        badgeInDev: "In Development",
+        slot1Title: "Software Slot #1",
+        slot2Title: "Software Slot #2",
+        slot3Title: "Software Slot #3",
+        slotDesc: "Slot reserved. The program and direct Google Drive link will appear here soon.",
+        feat1Title: "Clean & Safe",
+        feat1Desc: "Every release is tested and verified free of malicious code and ads.",
+        feat2Title: "Google Drive Mirror",
+        feat2Desc: "Fast and reliable direct downloads with no countdowns or bandwidth throttling.",
+        feat3Title: "Regular Updates",
+        feat3Desc: "We continuously refine our projects and ship fresh releases.",
+        footerText: "All rights reserved.",
+        backToTop: "Back to top ↑"
+      }
+    };
+
+    function setLang(lang) {
+      localStorage.setItem('site_lang', lang);
+      document.getElementById('btnRu').classList.toggle('active', lang === 'ru');
+      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+
+      const t = translations[lang];
+      document.title = t.pageTitle;
+      document.getElementById('heroTitle').innerHTML = t.heroTitle;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          el.innerHTML = t[key];
+        }
+      });
+    }
+
+    // Инициализация при загрузке
+    const savedLang = localStorage.getItem('site_lang') || 'ru';
+    setLang(savedLang);
+  </script>
 </body>
 </html>
