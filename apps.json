@@ -1,56 +1,80 @@
 [
   {
-    "id": "app-sample-1",
-    "title": "FastConverter Pro",
+    "id": "app-template-1",
+    "title_ru": "Название программы #1",
+    "title_en": "Program Name #1",
     "version": "1.0.0",
     "category": "utilities",
     "platform": "Windows",
-    "badge": "Популярное",
-    "description": "Быстрый инструмент для пакетного конвертирования файлов, изображений и документов без потери качества.",
-    "features": [
-      "Пакетная обработка в 1 клик",
-      "Поддержка более 50 форматов",
-      "Работает офлайн без интернета"
+    "badge_ru": "Скоро",
+    "badge_en": "Coming Soon",
+    "description_ru": "Краткое описание вашей первой программы. Здесь можно рассказать, какие задачи она решает и для кого предназначена.",
+    "description_en": "Short description of your first program. Explain what problems it solves and who it is designed for.",
+    "features_ru": [
+      "Ключевая особенность программы",
+      "Быстрая и стабильная работа",
+      "Удобный интуитивный интерфейс"
     ],
-    "size": "24.5 МБ",
-    "date": "20.11.2026",
-    "downloadUrl": "https://drive.google.com/",
+    "features_en": [
+      "Key program feature",
+      "Fast and reliable performance",
+      "Intuitive and clean user interface"
+    ],
+    "size": "-- МБ",
+    "date": "2026",
+    "downloadUrl": "#",
     "sourceUrl": ""
   },
   {
-    "id": "app-sample-2",
-    "title": "SmartTaskManager",
-    "version": "1.2.0",
+    "id": "app-template-2",
+    "title_ru": "Название программы #2",
+    "title_en": "Program Name #2",
+    "version": "1.0.0",
     "category": "productivity",
     "platform": "Windows",
-    "badge": "Новинка",
-    "description": "Легковесный трекер задач и таймер продуктивности с минималистичным интерфейсом для рабочего стола.",
-    "features": [
-      "Встроенный таймер фокуса (Pomodoro)",
-      "Синхронизация локальных отчетов",
-      "Не грузит систему (всего 15 МБ RAM)"
+    "badge_ru": "В разработке",
+    "badge_en": "In Development",
+    "description_ru": "Описание второй программы. Замените этот текст на реальное описание вашего софта.",
+    "description_en": "Description for the second program. Replace this text with your real software description.",
+    "features_ru": [
+      "Полезная функция номер один",
+      "Оптимизация под современные системы",
+      "Не требует сложных настроек"
     ],
-    "size": "12.8 МБ",
-    "date": "18.11.2026",
-    "downloadUrl": "https://drive.google.com/",
+    "features_en": [
+      "Useful core feature",
+      "Optimized for modern operating systems",
+      "Zero complicated configuration required"
+    ],
+    "size": "-- МБ",
+    "date": "2026",
+    "downloadUrl": "#",
     "sourceUrl": ""
   },
   {
-    "id": "app-sample-3",
-    "title": "DevToolKit Assistant",
-    "version": "0.9.5-beta",
+    "id": "app-template-3",
+    "title_ru": "Название программы #3",
+    "title_en": "Program Name #3",
+    "version": "1.0.0",
     "category": "developer",
     "platform": "Windows / Web",
-    "badge": "Бета",
-    "description": "Набор утилит для разработчиков: генерация токенов, валидация JSON/RegEx и форматирование кода.",
-    "features": [
-      "Горячие клавиши для быстрого вызова",
-      "Инструменты работы с API и JSON",
-      "Открытый исходный код"
+    "badge_ru": "В разработке",
+    "badge_en": "In Development",
+    "description_ru": "Описание третьей программы или утилиты для разработчиков и пользователей.",
+    "description_en": "Description for the third program or developer utility tool.",
+    "features_ru": [
+      "Пакетные операции и гибкость",
+      "Портативная версия (без инсталлятора)",
+      "Бесплатная поддержка и обновления"
     ],
-    "size": "8.2 МБ",
-    "date": "15.11.2026",
-    "downloadUrl": "https://drive.google.com/",
-    "sourceUrl": "https://github.com/"
+    "features_en": [
+      "Batch actions and high flexibility",
+      "Portable version (no installer needed)",
+      "Free updates and maintenance"
+    ],
+    "size": "-- МБ",
+    "date": "2026",
+    "downloadUrl": "#",
+    "sourceUrl": ""
   }
 ]

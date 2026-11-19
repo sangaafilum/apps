@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AppHub — Открытый каталог наших программ</title>
-  <meta name="description" content="Каталог наших авторских программ и утилит. Бесплатное скачивание с Google Диска.">
+  <title>sangaafilum Vault — Software & Apps</title>
+  <meta name="description" content="Открытый каталог авторских программ и утилит sangaafilum.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,20 +19,29 @@
   <header class="header container">
     <div class="logo">
       <span class="logo-icon">⚡</span>
-      <span class="logo-text">Dev<strong>Vault</strong></span>
+      <span class="logo-text">sangaafilum <strong>Vault</strong></span>
     </div>
-    <div class="header-links">
-      <a href="#apps" class="nav-btn">Каталог</a>
-      <a href="#about" class="nav-btn">О нас</a>
-      <a href="https://t.me/" target="_blank" rel="noopener" class="nav-btn nav-btn-primary">Связаться</a>
+    
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btnRu" data-lang="ru">RU</button>
+        <span class="lang-divider">/</span>
+        <button class="lang-btn" id="btnEn" data-lang="en">EN</button>
+      </div>
+      
+      <div class="header-links">
+        <a href="#apps" class="nav-btn" data-i18n="navCatalog">Каталог</a>
+        <a href="#about" class="nav-btn" data-i18n="navAbout">О проекте</a>
+        <a href="https://github.com/sangaafilum" target="_blank" rel="noopener" class="nav-btn nav-btn-primary">GitHub</a>
+      </div>
     </div>
   </header>
 
   <!-- Главный экран (Hero) -->
   <section class="hero container">
-    <div class="hero-badge">🚀 Открытые авторские разработки</div>
-    <h1 class="hero-title">Программы, которые мы создаём <br><span class="gradient-text">для работы и удобства</span></h1>
-    <p class="hero-subtitle">
+    <div class="hero-badge" data-i18n="heroBadge">🚀 Открытые авторские разработки</div>
+    <h1 class="hero-title" id="heroTitle">Программы, которые мы создаём <br><span class="gradient-text">для работы и удобства</span></h1>
+    <p class="hero-subtitle" data-i18n="heroSubtitle">
       Здесь собраны все наши авторские приложения, скрипты и утилиты. Все файлы проверены на вирусы, полностью бесплатны и доступны для скачивания с Google Диска.
     </p>
 
@@ -47,10 +56,10 @@
       </div>
 
       <div class="filter-tabs" id="filterTabs">
-        <button class="filter-btn active" data-filter="all">Все</button>
-        <button class="filter-btn" data-filter="utilities">Утилиты</button>
-        <button class="filter-btn" data-filter="productivity">Продуктивность</button>
-        <button class="filter-btn" data-filter="developer">Для разработчиков</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="tabAll">Все</button>
+        <button class="filter-btn" data-filter="utilities" data-i18n="tabUtils">Утилиты</button>
+        <button class="filter-btn" data-filter="productivity" data-i18n="tabProd">Продуктивность</button>
+        <button class="filter-btn" data-filter="developer" data-i18n="tabDev">Для разработчиков</button>
       </div>
     </div>
   </section>
@@ -58,11 +67,11 @@
   <!-- Сетка программ -->
   <main class="apps-section container" id="apps">
     <div class="apps-grid" id="appsGrid">
-      <!-- Карточки наполняются автоматически из apps.json -->
+      <!-- Наполняется через script.js -->
     </div>
     
     <div id="noResults" class="no-results hidden">
-      <p>🔍 По вашему запросу ничего не найдено</p>
+      <p data-i18n="noResults">🔍 По вашему запросу ничего не найдено</p>
     </div>
   </main>
 
@@ -71,18 +80,18 @@
     <div class="info-card">
       <div class="info-item">
         <div class="info-icon">🛡️</div>
-        <h3>Безопасность</h3>
-        <p>Каждая программа перед загрузкой проверяется, не содержит рекламы и скрытых майнеров.</p>
+        <h3 data-i18n="feat1Title">Безопасность</h3>
+        <p data-i18n="feat1Desc">Каждая программа перед загрузкой проверяется, не содержит рекламы и скрытых майнеров.</p>
       </div>
       <div class="info-item">
         <div class="info-icon">⚡</div>
-        <h3>Google Диск</h3>
-        <p>Быстрая прямая скорость скачивания без ожидания таймеров и ограничений.</p>
+        <h3 data-i18n="feat2Title">Google Диск</h3>
+        <p data-i18n="feat2Desc">Быстрая прямая скорость скачивания без ожидания таймеров и ограничений.</p>
       </div>
       <div class="info-item">
         <div class="info-icon">🔄</div>
-        <h3>Обновления</h3>
-        <p>Мы постоянно улучшаем наши разработки и выкладываем свежие релизы.</p>
+        <h3 data-i18n="feat3Title">Обновления</h3>
+        <p data-i18n="feat3Desc">Мы постоянно улучшаем наши разработки и выкладываем свежие релизы.</p>
       </div>
     </div>
   </section>
@@ -90,9 +99,9 @@
   <!-- Подвал -->
   <footer class="footer container">
     <div class="footer-content">
-      <p>© 2026 DevVault. Сделано с душой.</p>
+      <p>© 2026 sangaafilum. <span data-i18n="footerText">Все права сохранены.</span></p>
       <div class="footer-links">
-        <a href="#apps">Вверх ↑</a>
+        <a href="#apps" data-i18n="backToTop">Вверх ↑</a>
       </div>
     </div>
   </footer>
