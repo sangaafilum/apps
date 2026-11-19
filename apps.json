@@ -1,0 +1,56 @@
+[
+  {
+    "id": "app-sample-1",
+    "title": "FastConverter Pro",
+    "version": "1.0.0",
+    "category": "utilities",
+    "platform": "Windows",
+    "badge": "Популярное",
+    "description": "Быстрый инструмент для пакетного конвертирования файлов, изображений и документов без потери качества.",
+    "features": [
+      "Пакетная обработка в 1 клик",
+      "Поддержка более 50 форматов",
+      "Работает офлайн без интернета"
+    ],
+    "size": "24.5 МБ",
+    "date": "20.11.2026",
+    "downloadUrl": "https://drive.google.com/",
+    "sourceUrl": ""
+  },
+  {
+    "id": "app-sample-2",
+    "title": "SmartTaskManager",
+    "version": "1.2.0",
+    "category": "productivity",
+    "platform": "Windows",
+    "badge": "Новинка",
+    "description": "Легковесный трекер задач и таймер продуктивности с минималистичным интерфейсом для рабочего стола.",
+    "features": [
+      "Встроенный таймер фокуса (Pomodoro)",
+      "Синхронизация локальных отчетов",
+      "Не грузит систему (всего 15 МБ RAM)"
+    ],
+    "size": "12.8 МБ",
+    "date": "18.11.2026",
+    "downloadUrl": "https://drive.google.com/",
+    "sourceUrl": ""
+  },
+  {
+    "id": "app-sample-3",
+    "title": "DevToolKit Assistant",
+    "version": "0.9.5-beta",
+    "category": "developer",
+    "platform": "Windows / Web",
+    "badge": "Бета",
+    "description": "Набор утилит для разработчиков: генерация токенов, валидация JSON/RegEx и форматирование кода.",
+    "features": [
+      "Горячие клавиши для быстрого вызова",
+      "Инструменты работы с API и JSON",
+      "Открытый исходный код"
+    ],
+    "size": "8.2 МБ",
+    "date": "15.11.2026",
+    "downloadUrl": "https://drive.google.com/",
+    "sourceUrl": "https://github.com/"
+  }
+]

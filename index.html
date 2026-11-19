@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AppHub — Открытый каталог наших программ</title>
+  <meta name="description" content="Каталог наших авторских программ и утилит. Бесплатное скачивание с Google Диска.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Фоновые эффекты -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- Шапка сайта -->
+  <header class="header container">
+    <div class="logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">Dev<strong>Vault</strong></span>
+    </div>
+    <div class="header-links">
+      <a href="#apps" class="nav-btn">Каталог</a>
+      <a href="#about" class="nav-btn">О нас</a>
+      <a href="https://t.me/" target="_blank" rel="noopener" class="nav-btn nav-btn-primary">Связаться</a>
+    </div>
+  </header>
+
+  <!-- Главный экран (Hero) -->
+  <section class="hero container">
+    <div class="hero-badge">🚀 Открытые авторские разработки</div>
+    <h1 class="hero-title">Программы, которые мы создаём <br><span class="gradient-text">для работы и удобства</span></h1>
+    <p class="hero-subtitle">
+      Здесь собраны все наши авторские приложения, скрипты и утилиты. Все файлы проверены на вирусы, полностью бесплатны и доступны для скачивания с Google Диска.
+    </p>
+
+    <!-- Поиск и фильтры -->
+    <div class="controls-panel">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Поиск программы по названию или описанию...">
+      </div>
+
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="utilities">Утилиты</button>
+        <button class="filter-btn" data-filter="productivity">Продуктивность</button>
+        <button class="filter-btn" data-filter="developer">Для разработчиков</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Сетка программ -->
+  <main class="apps-section container" id="apps">
+    <div class="apps-grid" id="appsGrid">
+      <!-- Карточки наполняются автоматически из apps.json -->
+    </div>
+    
+    <div id="noResults" class="no-results hidden">
+      <p>🔍 По вашему запросу ничего не найдено</p>
+    </div>
+  </main>
+
+  <!-- Информационный блок -->
+  <section class="info-section container" id="about">
+    <div class="info-card">
+      <div class="info-item">
+        <div class="info-icon">🛡️</div>
+        <h3>Безопасность</h3>
+        <p>Каждая программа перед загрузкой проверяется, не содержит рекламы и скрытых майнеров.</p>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">⚡</div>
+        <h3>Google Диск</h3>
+        <p>Быстрая прямая скорость скачивания без ожидания таймеров и ограничений.</p>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🔄</div>
+        <h3>Обновления</h3>
+        <p>Мы постоянно улучшаем наши разработки и выкладываем свежие релизы.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <footer class="footer container">
+    <div class="footer-content">
+      <p>© 2026 DevVault. Сделано с душой.</p>
+      <div class="footer-links">
+        <a href="#apps">Вверх ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
